@@ -1,0 +1,369 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  background: radial-gradient(ellipse at top, #ffe5ec 0%, #1d2b64 100%);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 600px;
+  margin: 90px auto 40px auto;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 32px;
+  box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.37), 0 0 0 8px #fff2;
+  padding: 64px 48px 48px 48px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: 2px solid #ff6f91;
+}
+
+.heart-crown {
+  font-size: 3em;
+  margin-bottom: 18px;
+  animation: pulse 1.5s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.heart-crown .crown {
+  font-size: 1.2em;
+  color: gold;
+  margin-right: -12px;
+  margin-top: -18px;
+  filter: drop-shadow(0 0 6px gold);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 3.5em;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+  color: #ff6f91;
+  text-shadow: 0 4px 16px #fff4, 0 2px 8px #ffb6b9;
+}
+
+.signature {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.3em;
+  color: #ffe5ec;
+  margin-top: 24px;
+  text-shadow: 0 2px 8px #fff2;
+}
+
+.btn {
+  background: linear-gradient(90deg, #ff6f91 0%, #ffb6b9 100%);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 38px;
+  font-size: 1.15em;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #ff6f91a0;
+  transition: 0.2s;
+  margin-top: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #ffb6b9 0%, #ff6f91 100%);
+  transform: scale(1.07);
+}
+
+.extra-message {
+  display: none;
+  margin-top: 28px;
+  font-size: 1.15em;
+  color: #fffbe7;
+  animation: fadeIn 1s;
+  text-shadow: 0 2px 8px #fff2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Kelopak bunga jatuh */
+.petal {
+  position: fixed;
+  top: -40px;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 1;
+  animation: fall 7s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter {
+  text-align: center;
+}
+
+.envelope {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  margin: 0 auto;
+  background: none;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #ffb6b9;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  z-index: 2;
+}
+
+.envelope-body {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: #fff;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 24px #ffb6b9a0;
+  z-index: 1;
+}
+
+.envelope-text {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope-text h2 {
+  font-family: "Great Vibes", cursive;
+  color: #ff6f91;
+  font-size: 1.8em;
+  margin: auto 0 15px;
+}
+
+.envelope-text p {
+  color: #333;
+  font-size: 1.1em;
+  margin-bottom: 18px;
+}
+/* Romantic background gradient + floating hearts */
+.romantic-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background: radial-gradient(
+    ellipse at top,
+    #ffe5ec 0%,
+    #ffb6b9 60%,
+    #1d2b64 100%
+  );
+  overflow: hidden;
+}
+
+.romantic-bg::before,
+.romantic-bg::after {
+  content: "💖💗💕💞";
+  position: absolute;
+  font-size: 3em;
+  opacity: 0.15;
+  left: 10vw;
+  top: 10vh;
+  animation: floatHearts 8s infinite linear alternate;
+}
+.romantic-bg::after {
+  left: 70vw;
+  top: 70vh;
+  font-size: 4em;
+  opacity: 0.12;
+  animation-delay: 4s;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-40px) scale(1.2);
+  }
+}
+
+/* Overlay transition */
+.overlay {
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.18, 1),
+    transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.15);
+}
+
+/* Main container transition */
+.container {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.18, 1),
+    transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.container.show {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Romantic background gradient + floating hearts */
+.romantic-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background: radial-gradient(
+    ellipse at top,
+    #ffe5ec 0%,
+    #ffb6b9 60%,
+    #1d2b64 100%
+  );
+  overflow: hidden;
+}
+
+.romantic-bg::before,
+.romantic-bg::after {
+  content: "💖💗💕💞";
+  position: absolute;
+  font-size: 3em;
+  opacity: 0.15;
+  left: 10vw;
+  top: 10vh;
+  animation: floatHearts 8s infinite linear alternate;
+}
+.romantic-bg::after {
+  left: 70vw;
+  top: 70vh;
+  font-size: 4em;
+  opacity: 0.12;
+  animation-delay: 4s;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-40px) scale(1.2);
+  }
+}
+
+/* Overlay transition */
+.overlay {
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.18, 1),
+    transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.15);
+}
+
+/* Main container transition */
+.container {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.18, 1),
+    transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.container.show {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Tambahan gambar */
+.main-img {
+  width: 120px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 12px #ffb6b9a0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.letter-img {
+  width: 90px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px #ffb6b9a0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.teteh-img {
+  width: 350px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 12px #ffb6b9a0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
